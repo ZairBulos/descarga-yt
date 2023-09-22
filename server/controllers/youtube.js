@@ -10,7 +10,13 @@ ytRouter.get('/info', async (req, res) => {
   }
 
   const info = await YoutubeModel.getBasicInfo(videoURL);
-  res.json(info);
+  const infoJSON = {
+    title: info.videoDetails.title,
+    duration: Number(info.videoDetails.lengthSeconds),
+    image: info.videoDetails.thumbnails[4].url
+  };
+
+  res.json(infoJSON);
 });
 
 ytRouter.post('/download-audio', async (req, res) => {
