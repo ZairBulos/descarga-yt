@@ -1,6 +1,18 @@
 const ytRouter = require('express').Router();
 const YoutubeModel = require('../models/youtube');
 
+ytRouter.get('/info', async (req, res) => {
+  const videoURL = req.query.url;
+  const isValidURL = YoutubeModel.validateURL(videoURL);
+
+  if (!isValidURL) {
+    return res.status(400).json({ error: 'Invalid video URL' });
+  }
+
+  const info = await YoutubeModel.getBasicInfo(videoURL);
+  res.json(info);
+});
+
 ytRouter.post('/download-audio', async (req, res) => {
   const videoURL = req.query.url;
   const isValidURL = YoutubeModel.validateURL(videoURL);
