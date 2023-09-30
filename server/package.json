@@ -1,15 +1,21 @@
 {
-  "name": "server",
+  "name": "youtube-downloader-backend",
   "version": "1.0.0",
-  "description": "Youtube Downloader BackEnd",
+  "description": "YouTube Downloader BackEnd",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
     "dev": "nodemon index.js",
     "test": "jest --verbose --runInBand"
   },
-  "keywords": [],
-  "author": "Bulos",
+  "keywords": [
+    "ytdl-core",
+    "youtube",
+    "download",
+    "video",
+    "audio"
+  ],
+  "author": "Bulos <buloszair@gmail.com> (https://github.com/ZairBulos)",
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",
