@@ -1,78 +1,52 @@
-import ButtonGroup from 'react-bootstrap/ButtonGroup';
-import Button from 'react-bootstrap/Button';
-import Card from 'react-bootstrap/Card';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
+import { lazy, Suspense } from 'react';
 
-import { Video } from '../../types/Video';
-import ButtonLoader from '../Loader/ButtonLoader';
+import DownloaderForm from './DownloaderForm';
+import { useDownload } from '../../hooks/useDownload';
+import { useField } from '../../hooks/useField';
+import { useInformation } from '../../hooks/useInformation';
+const Loader = lazy(() => import('../Loader/Loader'));
+const DownloaderCard = lazy(() => import('./DownloaderCard'));
 
-interface Props {
-  video: Video | null;
-  type: string;
-  downloading: boolean;
-  setType: (type: string) => void;
-  handleDownload: () => void;
+interface FormValues {
+  url: string;
 }
 
-function Donwloader({ video, downloading, type, setType, handleDownload }: Props) {
+function Downloader() {
+  const download = useDownload();
+  const url = useField<string>('');
+  const format = useField<string>('mp3');
+  const video = useInformation(url.value);
 
-  if (!video) return null;
+  const handleInformation = (newUrl: FormValues) => {
+    url.onChange(newUrl.url);
+    download.toggleVisibility(true);
+  };
 
-  const formatDuration = (): string => {
-    const minutes = Math.floor(video.duration / 60);
-    const remainingSeconds = video.duration % 60;
-    
-    const formattedMinutes = minutes < 10 ? `0${minutes}` : minutes.toString();
-    const formattedSeconds = remainingSeconds < 10 ? `0${remainingSeconds}` : remainingSeconds.toString();
-    
-    return `${formattedMinutes}:${formattedSeconds}`;
+  const handleDownload = () => {
+    download.onDownload(url, format);
   };
 
   return (
-    <Card className="mx-auto" border="danger" style={{ maxWidth: '50rem' }}>
-      <Row>
-        <Col xs={12} md={4}>
-          <Card.Img
-            src={video.image}
-            alt={video.title}
-            loading="lazy"
-            className="img-fluid h-100"
-          />
-        </Col>
-        <Col xs={12} md={8}>
-          <Card.Body>
-            <Card.Title>
-              {video.title}
-            </Card.Title>
-            <Card.Text className="text-muted">
-              {formatDuration()}
-            </Card.Text>
-          </Card.Body>
-          <Card.Footer>
-            <ButtonGroup aria-label="Basic example">
-              {downloading ? (
-                <ButtonLoader />
-              ): (
-                <Button onClick={handleDownload} variant="danger">
-                  Descargar
-                </Button>
-              )}
-              <select 
-                id="type"
-                value={type}
-                onChange={(e) => setType(e.target.value)}
-                className="btn border-danger download-option"
-              >
-                <option value="mp3">MP3</option>
-                <option value="mp4">MP4</option>
-              </select>
-            </ButtonGroup>
-          </Card.Footer>
-        </Col>
-      </Row>
-    </Card>
+    <section className='py-5'>
+      <DownloaderForm
+        onSubmit={handleInformation}
+      />
+
+      <Suspense>
+        {video.loading ? (
+          <Loader />
+        ) :
+          download.visibleDownloader && (
+            <DownloaderCard
+              format={format}
+              video={video.value}
+              downloading={download.downloading}
+              handleDownload={handleDownload}
+            />
+          )}
+      </Suspense>
+    </section>
   );
 }
 
-export default Donwloader;
+export default Downloader;

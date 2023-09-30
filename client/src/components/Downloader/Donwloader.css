@@ -1,0 +1,37 @@
+.input-video {
+  border: 2px solid #282828;
+}
+
+.input-video:focus {
+  border-color: #282828;
+  box-shadow: 0 0 0 0.1rem rgba(40, 40, 40, 0.3);
+}
+
+.was-validated .input-video:valid {
+  border: 1px solid #282828;
+  box-shadow: none;
+}
+
+.was-validated .input-video:valid:focus {
+  border: 1px solid #000;
+  box-shadow: 0 0 0 0.1rem rgba(40, 40, 40, 0.3);
+}
+
+.was-validated .input-video:invalid {
+  border: 1px solid #FF0000;
+}
+
+.was-validated .input-video:invalid:focus {
+  border-color: #282828;
+  box-shadow: 0 0 0 0.1rem rgba(40, 40, 40, 0.3);
+}
+
+.card-video {
+  max-width: 50rem;
+  box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.3);
+}
+
+.card-video-footer {
+  border-top: none;
+  background-color: transparent;
+}

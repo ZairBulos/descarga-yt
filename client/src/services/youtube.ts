@@ -1,4 +1,4 @@
-import { Video } from "../types/Video";
+import { Video } from '../types/Video';
 const BASE_API = import.meta.env.VITE_BASE_API;
 
 export const getInfo = async (url: string): Promise<Video> => {
@@ -11,9 +11,8 @@ export const getInfo = async (url: string): Promise<Video> => {
 
     const data = await response.json() as Video;
     return data;
-  } catch (error) {
-    console.log(error);
-    throw new Error();
+  } catch (error: any) {
+    throw new Error(`Error al realizar la solicitud: ${error.message}`);
   }
 };
 
@@ -29,9 +28,8 @@ export const downloadAudio = async (url: string) => {
 
     const blob = await response.blob();
     return URL.createObjectURL(blob);
-  } catch (error) {
-    console.log(error);
-    throw new Error();
+  } catch (error: any) {
+    throw new Error(`Error al realizar la solicitud: ${error.message}`);
   }
 };
 
@@ -47,8 +45,7 @@ export const downloadVideo = async (url: string) => {
 
     const blob = await response.blob();
     return URL.createObjectURL(blob);
-  } catch (error) {
-    console.log(error);
-    throw new Error('Error');
+  } catch (error: any) {
+    throw new Error(`Error al realizar la solicitud: ${error.message}`);
   }
 };

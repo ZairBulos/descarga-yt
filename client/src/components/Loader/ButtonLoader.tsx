@@ -3,13 +3,13 @@ import Spinner from 'react-bootstrap/Spinner';
 
 function ButtonLoader() {
   return (
-    <Button variant="danger" disabled>
+    <Button variant='danger' disabled>
       <Spinner
-        as="span"
-        animation="border"
-        size="sm"
-        role="status"
-        aria-hidden="true"
+        as='span'
+        animation='border'
+        size='sm'
+        role='status'
+        aria-hidden='true'
       />
       Descargando...
     </Button>
