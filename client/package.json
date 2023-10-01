@@ -1,8 +1,17 @@
 {
-  "name": "client",
+  "name": "youtube-downloader-frontend",
   "private": true,
   "version": "0.0.0",
+  "description": "YouTube Downloader FrontEnd",
   "type": "module",
+  "author": "Bulos <buloszair@gmail.com> (https://github.com/ZairBulos)",
+  "keywords": [
+    "ytdl-core",
+    "youtube",
+    "download",
+    "video",
+    "audio"
+  ],
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
