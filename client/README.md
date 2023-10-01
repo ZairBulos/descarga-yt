@@ -39,3 +39,23 @@ Now that you have cloned the repository, installed the necessary dependencies, a
 ```bash
 pnpm run dev
 ```
+
+## Technologies
+
+<p style="text-align: left;"> 
+  <p> 
+    <img src="https://github.com/devicons/devicon/blob/master/icons/react/react-original.svg" 
+      alt="react" width="65" height="65" 
+    />
+  </p>
+  <p>
+    <img src="https://github.com/devicons/devicon/blob/master/icons/typescript/typescript-plain.svg" 
+      alt="typescript" width="65" height="65" 
+    />
+  </p>
+  <p>
+    <img src="https://github.com/devicons/devicon/blob/master/icons/bootstrap/bootstrap-original.svg" 
+      alt="bootstrap" width="65" height="65" 
+    />
+  </p>
+</p>

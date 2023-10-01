@@ -8,19 +8,19 @@ To use the YouTube Downloader BackEnd, you'll need to follow these steps:
 
 1. Clone the Repository
 
-  First, clone the YouTube Downloader repository to your local machine using Git:
+First, clone the YouTube Downloader repository to your local machine using Git:
 
-  ```bash
-  git clone https://github.com/ZairBulos/youtube-downloader.git
-  ```
+```bash
+git clone https://github.com/ZairBulos/youtube-downloader.git
+```
 
 2. Navigate to the Server Folder
 
-  Change your current directory to the server folder within the cloned repository:
+Change your current directory to the server folder within the cloned repository:
 
-  ```bash
-  cd youtube-downloader/server
-  ```
+```bash
+cd youtube-downloader/server
+```
 
 ## Installation
 
@@ -100,3 +100,23 @@ Example Request:
 ```bash
 POST /download-video?url=https://www.youtube.com/watch?v=VIDEO_ID
 ```
+
+## Technologies
+
+<p style="text-align: left;"> 
+  <p> 
+    <img src="https://github.com/devicons/devicon/blob/master/icons/nodejs/nodejs-original.svg" 
+      alt="nodejs" width="65" height="65" 
+    />
+  </p>
+  <p>
+    <img src="https://github.com/devicons/devicon/blob/master/icons/javascript/javascript-plain.svg" 
+      alt="javascript" width="65" height="65" 
+    />
+  </p>
+  <p>
+    <img src="https://github.com/devicons/devicon/blob/master/icons/express/express-original-wordmark.svg" 
+      alt="express" width="65" height="65" 
+    />
+  </p>
+</p>
