@@ -1,19 +1,15 @@
-import { useEffect, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 
 import { Video } from '../types/Video';
 import { Information } from '../types/Information';
 import { getInfo } from '../services/youtube';
 
-export const useInformation = (url: string): Information => {
+export const useInformation = (): Information => {
   const [value, setValue] = useState<Video | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
   const previousUrl = useRef<string | null>();
 
-  useEffect(() => {
-    getInformation();
-  }, [url]);
-
-  const getInformation = async () => {
+  const onInformation = async (url: string) => {
     try {
       if (url && url !== previousUrl.current) {
         previousUrl.current = url;
@@ -22,8 +18,8 @@ export const useInformation = (url: string): Information => {
         const newInfo = await getInfo(url);
         setValue(newInfo);
       }
-    } catch (error) {
-      throw error;
+    } catch (error: any) {
+      throw new Error(error);
     } finally {
       setLoading(false);
     }
@@ -31,6 +27,7 @@ export const useInformation = (url: string): Information => {
 
   return {
     value,
-    loading
+    loading,
+    onInformation
   }
 };

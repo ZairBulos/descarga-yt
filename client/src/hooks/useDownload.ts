@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { Field } from '../types/Field';
 import { createDownload, download } from '../utils/Download';
 
 export const useDownload = () => {
@@ -12,13 +11,13 @@ export const useDownload = () => {
       : setVisibleDownloader((prevValue) => !prevValue);
   };
 
-  const onDownload = async (url: Field<string>, format: Field<string>) => {
+  const onDownload = async (url: string, format: string) => {
     try {
       setDownloading(true);
-      const res = await download(url.value, format.value);
-      createDownload(res, format.value);
-    } catch (error) {
-      console.log(error);
+      const res = await download(url, format);
+      createDownload(res, format);
+    } catch (error: any) {
+      throw new Error(error);
     } finally {
       setDownloading(false);
     }
