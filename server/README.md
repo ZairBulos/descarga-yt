@@ -1,22 +1,18 @@
-# YouTube Downloader BackEnd
+# DescargaYT (SERVER)
 
-Welcome to the YouTube Downloader BackEnd documentation. This guide will help you get started with setting up and running the server for the YouTube Downloader project.
+Welcome to the **DescargaYT** server documentation. This guide will help you get started with setting up and running the server for the YouTube Downloader project.
 
 ## Getting Started
 
-To use the YouTube Downloader BackEnd, you'll need to follow these steps:
+To use the YouTube Downloader Backend, follow these steps:
 
-1. Clone the Repository
-
-First, clone the YouTube Downloader repository to your local machine using Git:
+1. Clone the Repository:
 
 ```bash
 git clone https://github.com/ZairBulos/youtube-downloader.git
 ```
 
-2. Navigate to the Server Folder
-
-Change your current directory to the server folder within the cloned repository:
+2. Navigate to the server folder:
 
 ```bash
 cd youtube-downloader/server
@@ -24,7 +20,15 @@ cd youtube-downloader/server
 
 ## Installation
 
-Before you can run the server, you need to install the required packages and dependencies. We recommend using pnpm as the package manager, but you can also use npm or yarn if you prefer.
+To install the necessary dependencies, run the following command:
+
+**Using npm:**
+
+```bash
+npm install
+```
+
+**Using pnpm:**
 
 ```bash
 pnpm install
@@ -32,7 +36,7 @@ pnpm install
 
 ### Environment Configuration
 
-Create a .env file in the root of the server directory and add the following configuration to specify the desired server port:
+Create a `.env` file in the root of the server directory and add the following configuration to specify the desired server port:
 
 ```env
 PORT=3000
@@ -44,8 +48,16 @@ You can replace 3000 with your preferred port number.
 
 Now that you have cloned the repository, installed the necessary dependencies, and configured the environment, you can start the server:
 
+**Using npm:**
+
 ```bash
-pnpm start
+npm run dev
+```
+
+**Using pnpm:**
+
+```bash
+pnpm run dev
 ```
 
 ### Endpoints
@@ -100,23 +112,3 @@ Example Request:
 ```bash
 POST /download-video?url=https://www.youtube.com/watch?v=VIDEO_ID
 ```
-
-## Technologies
-
-<p style="text-align: left;"> 
-  <p> 
-    <img src="https://github.com/devicons/devicon/blob/master/icons/nodejs/nodejs-original.svg" 
-      alt="nodejs" width="65" height="65" 
-    />
-  </p>
-  <p>
-    <img src="https://github.com/devicons/devicon/blob/master/icons/javascript/javascript-plain.svg" 
-      alt="javascript" width="65" height="65" 
-    />
-  </p>
-  <p>
-    <img src="https://github.com/devicons/devicon/blob/master/icons/express/express-original-wordmark.svg" 
-      alt="express" width="65" height="65" 
-    />
-  </p>
-</p>

@@ -1,13 +1,14 @@
 {
-  "name": "youtube-downloader-backend",
+  "name": "descarga-yt-backend",
   "version": "1.0.0",
   "description": "YouTube Downloader BackEnd",
   "main": "index.js",
-  "scripts": {
-    "start": "node index.js",
-    "dev": "nodemon index.js",
-    "test": "jest --verbose --runInBand"
+  "author": {
+    "name": "Zair Bulos",
+    "email": "buloszair@gmail.com",
+    "url": "https://github.com/ZairBulos"
   },
+  "license": "MIT",
   "keywords": [
     "ytdl-core",
     "youtube",
@@ -15,8 +16,11 @@
     "video",
     "audio"
   ],
-  "author": "Bulos <buloszair@gmail.com> (https://github.com/ZairBulos)",
-  "license": "ISC",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "test": "jest --verbose --runInBand"
+  },
   "dependencies": {
     "cors": "^2.8.5",
     "dotenv": "^16.3.1",
